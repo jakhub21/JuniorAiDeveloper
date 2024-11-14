@@ -36,12 +36,31 @@ def generate_summary(article):
     )
     return response.choices[0].message.content.strip()
 
+def replace_body_in_template(template_content, body_content):
+    """Zastępuje sekcję <body> w szablonie wygenerowanym kodem HTML."""
+    start_body = template_content.find("<body>") + len("<body>")
+    end_body = template_content.find("</body>")
+
+    if start_body == -1 or end_body == -1:
+        raise ValueError("Szablon HTML musi zawierać tagi <body> i </body>.")
+    new_content = template_content[:start_body] + "\n" + body_content + "\n" + template_content[end_body:]
+    return new_content
+
 def main():
     article = 'artykul.txt'
     html_article = 'artykul.html'
+    template_path = 'szablon.html'
+    output_path = 'podglad.html'
+
     article_content = read_article(article)
+    template_content = read_article(template_path)
+
     html_content = generate_summary(article_content)
+
     save_file(html_content, html_article)
+
+    new_content = replace_body_in_template(template_content, html_content)
+    save_file(new_content, output_path)
 
 if __name__ == "__main__":
     main()
