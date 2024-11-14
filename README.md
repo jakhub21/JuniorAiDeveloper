@@ -59,5 +59,15 @@ python3 app.py
 
 ### Krok 5: Wynik
 
-Po uruchomieniu aplikacji w katalogu głównym projektu zostanie utworzony plik `article.html`, który zawiera przekształcony artykuł w formacie HTML.
+Po uruchomieniu aplikacji w katalogu głównym projektu zostaną utworzone dwa kluczowe pliki:
 
+1. **`artykul.html`** – Ten plik zawiera przekształcony artykuł w formacie HTML, wygenerowany przez API OpenAI. Kod HTML zawiera treść artykułu, poprawnie ustrukturyzowaną przy użyciu tagów HTML oraz oznaczenia miejsc na grafiki z tagami `<img>` i odpowiadającymi im opisami w atrybucie `alt`. Jest to surowy kod HTML przeznaczony do osadzenia w szablonie, bez nagłówków czy stylizacji.
+
+2. **`podglad.html`** – Jest to gotowy podgląd artykułu w pełnym szablonie HTML. Aplikacja automatycznie podmienia sekcję `<body>` w pliku szablonowym `szablon.html` na wygenerowaną treść z `artykul.html` i zapisuje wynikowy dokument jako `podglad.html`. Dzięki temu `podglad.html` jest kompletnym plikiem, gotowym do wyświetlenia w przeglądarce, oferującym pełen, sformatowany widok artykułu.
+
+#### Podsumowanie wyników:
+
+- **`artykul.html`** – surowa treść artykułu w HTML, przeznaczona do osadzenia w szablonie.
+- **`podglad.html`** – pełen podgląd artykułu gotowy do otwarcia w przeglądarce.
+
+Teraz możesz otworzyć `podglad.html` w dowolnej przeglądarce, aby zobaczyć gotowy artykuł w pełnym szablonie HTML.
